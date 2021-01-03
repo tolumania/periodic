@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'item_config.dart';
+import 'text_config.dart';
 
 ///PeriodicConfig
 ///
@@ -20,6 +21,9 @@ class PeriodicConfig {
   ///Menu color for Frequency
   final Color frequencyMenuColor;
 
+  ///Texts in the widget
+  final PeriodicTextConfig textConfig;
+
   ///Default constructor for PeriodicConfig
   PeriodicConfig({
     this.frequencyDecoration,
@@ -27,5 +31,6 @@ class PeriodicConfig {
     this.horizontalAlignment = Alignment.center,
     this.monthConfig = const PeriodicItemConfig(),
     this.weekConfig = const PeriodicItemConfig(),
+    this.textConfig = const PeriodicTextConfig(),
   });
 }

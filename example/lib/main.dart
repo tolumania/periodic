@@ -45,8 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 config: PeriodicConfig(),
               ),
               RaisedButton(
-                onPressed: () {
-                  showPeriodicDialog(
+                onPressed: () async {
+                  final value = await showPeriodicDialog(
                     context,
                     initialData: PeriodicData(
                       frequency: Frequency.weekly,
@@ -66,6 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           size: MediaQuery.of(context).size.width * 0.04),
                     ),
                   );
+
+                  print((value as PeriodicData).every);
                 },
               ),
             ],

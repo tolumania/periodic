@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../periodic.dart';
 import '../../utils/periodic_provider.dart';
 import 'gap.dart';
 
@@ -22,7 +23,7 @@ class IntervalPicker extends ConsumerWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Cada:'),
+          Text('${config.textConfig.every}:'),
           Gap.small(),
           NumberPicker(
             onValue: (a) => _onValueChanged(context, a),
@@ -30,7 +31,7 @@ class IntervalPicker extends ConsumerWidget {
             minValue: 1,
           ),
           Gap.small(),
-          Text('Dia(s)'),
+          Text(data.frequency.amount(data.every, config.textConfig)),
         ],
       ),
     );

@@ -54,6 +54,7 @@ class MonthTypeChoose extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final data = watch(periodicProvider.state);
+    final config = watch(configProvider);
 
     return RadioGroup<MonthlyType>.builder(
       groupValue: data.monthlyType,
@@ -62,7 +63,7 @@ class MonthTypeChoose extends ConsumerWidget {
       items: MonthlyType.values,
       horizontalAlignment: MainAxisAlignment.center,
       itemBuilder: (item) => RadioButtonBuilder(
-        item.toString().replaceAll('MonthlyType.', ''),
+        item.text(config.textConfig),
         textPosition: RadioButtonTextPosition.left,
       ),
     );

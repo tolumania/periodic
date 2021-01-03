@@ -11,12 +11,14 @@ import 'periodic_widget.dart';
 ///
 ///You can customize the dialog with a [shape]
 ///and a [title].
-Future<dynamic> showPeriodicDialog(
+Future<PeriodicData> showPeriodicDialog(
   BuildContext context, {
   PeriodicConfig config,
   PeriodicData initialData,
   ShapeBorder shape,
-  String title,
+  String title = 'Periodic',
+  String cancelText = 'Cancel',
+  String okText = 'OK',
 }) {
   final periodicController = PeriodicController();
 
@@ -25,22 +27,18 @@ Future<dynamic> showPeriodicDialog(
     child: AlertDialog(
       actions: [
         FlatButton(
-            child: Text('Cancel'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            }),
-        RaisedButton(
-            child: Text('Ok'),
-            onPressed: () {
-              print(periodicController.current.toString());
-              // Navigator.of(context).pop();
-            }),
+            child: Text(cancelText),
+            onPressed: () => Navigator.of(context).pop()),
+        FlatButton(
+            child: Text(okText),
+            onPressed: () =>
+                Navigator.of(context).pop(periodicController.current)),
       ],
       insetPadding:
           const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
       contentPadding:
           const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-      title: Text(title ?? 'Hola'),
+      title: Text(title),
       content: Periodic(
         config: config,
         controller: periodicController,
