@@ -16,7 +16,7 @@ class Weekly extends ConsumerWidget {
 
     return Column(
       children: [
-        IntervalPicker(),
+        Center(child: IntervalPicker()),
         Gap.medium(),
         Week(
           daysOfWeek: data.daysOfWeek,

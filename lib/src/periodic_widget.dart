@@ -97,7 +97,7 @@ class _RawPeriodicWidget extends HookWidget {
           onFrequencyChanged: (frequency) =>
               _onFrequencyChaged(context, frequency),
         ),
-        Gap.medium(),
+        Gap.large(),
         AnimatedSwitcher(
           duration: Duration(milliseconds: 200),
           transitionBuilder: (child, animation) => SizeTransition(

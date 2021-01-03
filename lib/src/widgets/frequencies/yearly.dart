@@ -8,6 +8,6 @@ class Yearly extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntervalPicker();
+    return Center(child: IntervalPicker());
   }
 }

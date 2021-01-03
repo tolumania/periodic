@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -36,7 +37,7 @@ class Month extends ConsumerWidget {
           ...List<int>.generate(31, (i) => i + 1)
               .map(
                 (d) => Container(
-                  child: Center(child: Text('$d')),
+                  child: Center(child: AutoSizeText('$d')),
                   width: size,
                   height: size,
                 ),

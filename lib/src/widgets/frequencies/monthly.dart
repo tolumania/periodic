@@ -34,6 +34,7 @@ class Monthly extends ConsumerWidget {
             ),
           ),
           child: Container(
+            alignment: Alignment.center,
             key: ObjectKey(data.monthlyType),
             child: (data.monthlyType == MonthlyType.dayOfMonth)
                 ? Month()
@@ -59,6 +60,7 @@ class MonthTypeChoose extends ConsumerWidget {
       onChanged: (m) => _changeMonthlyType(context, m),
       direction: Axis.horizontal,
       items: MonthlyType.values,
+      horizontalAlignment: MainAxisAlignment.center,
       itemBuilder: (item) => RadioButtonBuilder(
         item.toString().replaceAll('MonthlyType.', ''),
         textPosition: RadioButtonTextPosition.left,

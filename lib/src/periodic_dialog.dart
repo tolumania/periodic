@@ -36,6 +36,10 @@ Future<dynamic> showPeriodicDialog(
               // Navigator.of(context).pop();
             }),
       ],
+      insetPadding:
+          const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
       title: Text(title ?? 'Hola'),
       content: Periodic(
         config: config,
