@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/all.dart';
 import '../data/config/periodic_config.dart';
 import '../data/periodic_state.dart';
 

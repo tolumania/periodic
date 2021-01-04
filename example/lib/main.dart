@@ -2,78 +2,104 @@ import 'package:flutter/material.dart';
 import 'package:periodic/periodic.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(PeriodicExampleApp());
 }
 
-class MyApp extends StatelessWidget {
+class PeriodicExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Periodic Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(title: 'Periodic Demo'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      body: ListView(
+        children: [
+          ListTile(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => PeriodicScreen(),
+              ),
+            ),
+            title: Text('Periodic widget'),
+            subtitle: Text('Simple example for Periodic widget'),
+            leading: Icon(Icons.home),
+          ),
+          ListTile(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => PeriodicDialogScreen(),
+              ),
+            ),
+            title: Text('Dialog'),
+            subtitle: Text('Custom dialog with Periodic widget'),
+            leading: Icon(Icons.face),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class PeriodicScreen extends StatelessWidget {
+  const PeriodicScreen({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Periodic Screen'),
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Periodic(
-                config: PeriodicConfig(),
+          child: Periodic(
+              // config: PeriodicConfig(),
+              // initialData: PeriodicData(frequency: null, every: null),
               ),
-              RaisedButton(
-                onPressed: () async {
-                  final value = await showPeriodicDialog(
-                    context,
-                    initialData: PeriodicData(
-                      frequency: Frequency.weekly,
-                      every: 5,
-                      daysOfMonth: [],
-                      daysOfWeek: [2, 4],
-                      daysOfWeeks: [[], [], [], []],
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    title: 'Periodic',
-                    config: PeriodicConfig(
-                      monthConfig: PeriodicItemConfig(
-                          size: MediaQuery.of(context).size.width * 0.04),
-                      weekConfig: PeriodicItemConfig(
-                          size: MediaQuery.of(context).size.width * 0.04),
-                    ),
-                  );
-
-                  print((value as PeriodicData).every);
-                },
-              ),
-            ],
-          ),
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+    );
+  }
+}
+
+class PeriodicDialogScreen extends StatelessWidget {
+  const PeriodicDialogScreen({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Periodic Dialog Screen'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          child: Text('Click me for dialog'),
+          onPressed: () => showPeriodicDialog(context),
+        ),
+      ),
     );
   }
 }
