@@ -6,8 +6,8 @@ A periodic widget (and dialog) to choose a recurring pattern.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/pblinux/periodic)
 
-<img src="https://raw.githubusercontent.com/pblinux/periodic/package/images/widget.png" height="350">
-<img src="https://raw.githubusercontent.com/pblinux/periodic/package/images/dialog.png" height="350">
+<img src="images/widget.png" height="350">
+<img src="images/dialog.png" height="350">
 
 ## Getting Started
 
