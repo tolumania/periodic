@@ -75,10 +75,7 @@ class PeriodicScreen extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Periodic(
-              // config: PeriodicConfig(),
-              // initialData: PeriodicData(frequency: null, every: null),
-              ),
+          child: Periodic(),
         ),
       ),
     );
