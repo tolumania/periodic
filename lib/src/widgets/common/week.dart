@@ -24,7 +24,18 @@ class Week extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final config = watch(configProvider);
-    final days = ['D', 'L', 'M', 'Mi', 'J', 'V', 'S'];
+    final text = config.textConfig;
+
+    final days = [
+      text.sunday,
+      text.monday,
+      text.tuesday,
+      text.wednesday,
+      text.thursday,
+      text.friday,
+      text.saturday
+    ];
+
     final size =
         config.weekConfig.size ?? MediaQuery.of(context).size.width / 14;
 

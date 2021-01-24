@@ -24,13 +24,17 @@ class PeriodicConfig {
   ///Texts in the widget
   final PeriodicTextConfig textConfig;
 
+  ///Color of the icons
+  final Color iconsColor;
+
   ///Default constructor for PeriodicConfig
   PeriodicConfig({
     this.frequencyDecoration,
     this.frequencyMenuColor = Colors.white,
     this.horizontalAlignment = Alignment.center,
+    this.iconsColor = Colors.black87,
     this.monthConfig = const PeriodicItemConfig(),
-    this.weekConfig = const PeriodicItemConfig(),
     this.textConfig = const PeriodicTextConfig(),
+    this.weekConfig = const PeriodicItemConfig(),
   });
 }

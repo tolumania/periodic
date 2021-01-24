@@ -29,6 +29,7 @@ class IntervalPicker extends ConsumerWidget {
             onValue: (a) => _onValueChanged(context, a),
             initialValue: data.every,
             minValue: 1,
+            iconsColor: config.iconsColor,
           ),
           Gap.small(),
           Text(data.frequency.amount(data.every, config.textConfig)),
@@ -56,10 +57,14 @@ class NumberPicker extends StatefulWidget {
   ///Min value permited
   final int minValue;
 
+  ///Color of icons
+  final Color iconsColor;
+
   ///Default constructor for custom number picker
   const NumberPicker({
     @required this.onValue,
     Key key,
+    this.iconsColor,
     this.initialValue,
     this.maxValue,
     this.minValue = 0,
@@ -95,7 +100,7 @@ class _NumberPickerState extends State<NumberPicker> {
           Gap.small(),
           InkWell(
             onTap: _decrement,
-            child: Icon(Icons.remove),
+            child: Icon(Icons.remove, color: widget.iconsColor),
             borderRadius: BorderRadius.circular(100.0),
           ),
           Gap.large(),
@@ -104,7 +109,7 @@ class _NumberPickerState extends State<NumberPicker> {
           InkWell(
             borderRadius: BorderRadius.circular(100.0),
             onTap: _increment,
-            child: Icon(Icons.add),
+            child: Icon(Icons.add, color: widget.iconsColor),
           ),
           Gap.small(),
         ],

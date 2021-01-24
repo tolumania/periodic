@@ -22,28 +22,26 @@ class PeriodicChoose extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final config = watch(configProvider);
-    return Row(
+    return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('${config.textConfig.frequency}:'),
-        Gap.medium(),
-        Expanded(
-          child: DropdownButtonFormField<Frequency>(
-            decoration: config.frequencyDecoration,
-            dropdownColor: config.frequencyMenuColor,
-            items: Frequency.values
-                .map(
-                  (f) => DropdownMenuItem<Frequency>(
-                    value: f,
-                    child: Text(f.text(config.textConfig)),
-                  ),
-                )
-                .toList(),
-            onChanged: onFrequencyChanged,
-            value: currentFrequency,
-          ),
-        )
+        Gap.small(),
+        DropdownButtonFormField<Frequency>(
+          decoration: config.frequencyDecoration,
+          dropdownColor: config.frequencyMenuColor,
+          items: Frequency.values
+              .map(
+                (f) => DropdownMenuItem<Frequency>(
+                  value: f,
+                  child: Text(f.text(config.textConfig)),
+                ),
+              )
+              .toList(),
+          onChanged: onFrequencyChanged,
+          value: currentFrequency,
+        ),
       ],
     );
   }

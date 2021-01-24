@@ -50,6 +50,27 @@ class PeriodicTextConfig {
   ///Year singular
   final String yearSingular;
 
+  ///Monday
+  final String monday;
+
+  ///Monday
+  final String tuesday;
+
+  ///Monday
+  final String wednesday;
+
+  ///Monday
+  final String thursday;
+
+  ///Monday
+  final String friday;
+
+  ///Monday
+  final String saturday;
+
+  ///Monday
+  final String sunday;
+
   ///Default constructor for PeriodicTextConfig
   const PeriodicTextConfig({
     this.daily = 'Daily',
@@ -59,9 +80,16 @@ class PeriodicTextConfig {
     this.daySingular = 'Day',
     this.every = 'Every',
     this.frequency = 'Frequency',
+    this.friday = 'F',
+    this.monday = 'M',
     this.monthPlural = 'Months',
     this.monthSingular = 'Month',
     this.monthly = 'Monthly',
+    this.saturday = 'Sa',
+    this.sunday = 'Su',
+    this.thursday = 'Th',
+    this.tuesday = 'Tu',
+    this.wednesday = 'W',
     this.weekPlural = 'Weeks',
     this.weekSingular = 'Week',
     this.weekly = 'Weekly',
