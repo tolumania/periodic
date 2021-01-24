@@ -1,6 +1,6 @@
 name: periodic
-description: Periodic widget (and dialog) to choose a recurring pattern.
-version: 1.0.0
+description: A periodic widget (and dialog) to choose a recurring pattern.
+version: 1.0.0+1
 homepage: https://github.com/pblinux/periodic
 repository: https://github.com/pblinux/periodic
 

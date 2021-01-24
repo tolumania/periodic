@@ -24,7 +24,7 @@ Future<PeriodicData> showPeriodicDialog(
 
   return showDialog(
     context: context,
-    child: AlertDialog(
+    builder: (context) => AlertDialog(
       actions: [
         FlatButton(
             child: Text(cancelText),

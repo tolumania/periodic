@@ -1,7 +1,7 @@
 # periodic
 A periodic widget (and dialog) to choose a recurring pattern.
 
-[![pub](https://img.shields.io/badge/pub-1.0.0-blue)](https://pub.dev/packages/periodic)
+[![pub](https://img.shields.io/badge/pub-1.0.0+1-blue)](https://pub.dev/packages/periodic)
 [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/pblinux/periodic)
@@ -18,7 +18,7 @@ Add the dependency:
 dependencies:
   flutter:
     sdk: flutter
-  periodic: 1.0.0
+  periodic: ^1.0.0+1
 ```
 
 ## Periodic Widget
