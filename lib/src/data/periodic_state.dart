@@ -1,18 +1,14 @@
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'common.dart';
 import 'periodic_data/periodic_data.dart';
 
 ///PeriodicState
 class PeriodicState extends StateNotifier<PeriodicData> {
   ///Default constructor for PeriodicState
-  PeriodicState({PeriodicData initialData})
+  PeriodicState({PeriodicData? initialData})
       : super(initialData ??
             PeriodicData(
-                every: 1,
-                frequency: Frequency.daily,
-                daysOfMonth: [],
-                daysOfWeek: [],
-                daysOfWeeks: [[], [], [], []]));
+                every: 1, frequency: Frequency.daily, daysOfMonth: [], daysOfWeek: [], daysOfWeeks: [[], [], [], []]));
 
   ///Current state
   PeriodicData get current => state;
@@ -30,8 +26,7 @@ class PeriodicState extends StateNotifier<PeriodicData> {
   ///Add or remove a day from `dayOfWeek` list.
   void dayOfWeek(int dayIndex) {
     if (state.daysOfWeek.contains(dayIndex)) {
-      state =
-          state.copyWith.call(daysOfWeek: state.daysOfWeek..remove(dayIndex));
+      state = state.copyWith.call(daysOfWeek: state.daysOfWeek..remove(dayIndex));
     } else {
       state = state.copyWith.call(daysOfWeek: state.daysOfWeek..add(dayIndex));
     }
@@ -41,22 +36,18 @@ class PeriodicState extends StateNotifier<PeriodicData> {
   ///mode for `month`.
   void daysOfWeeks(int week, int dayIndex) {
     if (state.daysOfWeeks[week].contains(dayIndex)) {
-      state = state.copyWith
-          .call(daysOfWeeks: state.daysOfWeeks..[week].remove(dayIndex));
+      state = state.copyWith.call(daysOfWeeks: state.daysOfWeeks..[week].remove(dayIndex));
     } else {
-      state = state.copyWith
-          .call(daysOfWeeks: state.daysOfWeeks..[week].add(dayIndex));
+      state = state.copyWith.call(daysOfWeeks: state.daysOfWeeks..[week].add(dayIndex));
     }
   }
 
   ///Add or remove a day from `dayOfMonth` list.
   void dayOfMonth(int dayIndex) {
     if (state.daysOfMonth.contains(dayIndex)) {
-      state =
-          state.copyWith.call(daysOfMonth: state.daysOfMonth..remove(dayIndex));
+      state = state.copyWith.call(daysOfMonth: state.daysOfMonth..remove(dayIndex));
     } else {
-      state =
-          state.copyWith.call(daysOfMonth: state.daysOfMonth..add(dayIndex));
+      state = state.copyWith.call(daysOfMonth: state.daysOfMonth..add(dayIndex));
     }
   }
 

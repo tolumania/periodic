@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'data/common.dart';
 import 'data/config/periodic_config.dart';
 import 'data/controller.dart';
@@ -28,23 +28,23 @@ class Periodic extends StatelessWidget {
   ///
   ///Widget configuration like color, styles
   ///and elevation.
-  final PeriodicConfig config;
+  final PeriodicConfig? config;
 
   ///Initial data
   ///
   ///Data to start with. If you pass it, must be
   ///with all its params, lists must not be null.
-  final PeriodicData initialData;
+  final PeriodicData? initialData;
 
   ///Controller
   ///
   ///Interact with the widget through this controller.
   ///`current` property holds the data.
-  final PeriodicController controller;
+  final PeriodicController? controller;
 
   ///Default constructor for Periodic widget
   const Periodic({
-    Key key,
+    Key? key,
     this.config,
     this.controller,
     this.initialData,
@@ -73,15 +73,14 @@ class Periodic extends StatelessWidget {
 ///children.
 class _RawPeriodicWidget extends HookWidget {
   ///Controller that will be used
-  final PeriodicController periodicController;
+  final PeriodicController? periodicController;
 
   ///Default constructor for _RawPeriodicWidget.
-  const _RawPeriodicWidget({Key key, this.periodicController})
-      : super(key: key);
+  const _RawPeriodicWidget({Key? key, this.periodicController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final data = useProvider(periodicProvider.state);
+    final data = useProvider(periodicProvider);
     final stream = useProvider(periodicProvider).stream;
 
     useEffect(() {
@@ -94,8 +93,7 @@ class _RawPeriodicWidget extends HookWidget {
       children: [
         PeriodicChoose(
           currentFrequency: data.frequency,
-          onFrequencyChanged: (frequency) =>
-              _onFrequencyChaged(context, frequency),
+          onFrequencyChanged: (frequency) => _onFrequencyChaged(context, frequency),
         ),
         Gap.large(),
         AnimatedSwitcher(
@@ -117,7 +115,7 @@ class _RawPeriodicWidget extends HookWidget {
     );
   }
 
-  void _onFrequencyChaged(BuildContext context, Frequency frequency) {
+  void _onFrequencyChaged(BuildContext context, Frequency? frequency) {
     context.read(periodicProvider).changeFrequency(frequency);
   }
 }

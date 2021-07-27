@@ -6,7 +6,7 @@ class Gap extends StatelessWidget {
   final double size;
 
   ///Private constructor.
-  const Gap._({@required this.size, Key key}) : super(key: key);
+  const Gap._({required this.size, Key? key}) : super(key: key);
 
   ///Small Gap.
   factory Gap.small() => Gap._(size: 8.0);

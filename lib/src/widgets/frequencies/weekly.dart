@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../utils/periodic_provider.dart';
 import '../common/gap.dart';
 import '../common/interval.dart';
@@ -8,11 +8,11 @@ import '../common/week.dart';
 ///Weekly widget.
 class Weekly extends ConsumerWidget {
   ///Default constructor for Weekly.
-  const Weekly({Key key}) : super(key: key);
+  const Weekly({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final data = watch(periodicProvider.state);
+    final data = watch(periodicProvider);
 
     return Column(
       children: [

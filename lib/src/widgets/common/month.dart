@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../utils/periodic_provider.dart';
 
 ///Month widget
@@ -10,14 +10,13 @@ import '../../utils/periodic_provider.dart';
 ///for your recurring pattern.
 class Month extends ConsumerWidget {
   ///Default constructor for Month.
-  const Month({Key key}) : super(key: key);
+  const Month({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final config = watch(configProvider);
-    final data = watch(periodicProvider.state);
-    final size =
-        config.monthConfig.size ?? MediaQuery.of(context).size.width / 14;
+    final data = watch(periodicProvider);
+    final size = config.monthConfig.size ?? MediaQuery.of(context).size.width / 14;
 
     return Container(
       child: CustomToggleButtons(

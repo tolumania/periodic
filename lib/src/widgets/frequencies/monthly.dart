@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:group_radio_button/group_radio_button.dart';
 import '../../data/common.dart';
 import '../../utils/periodic_provider.dart';
@@ -11,11 +11,11 @@ import '../common/multi_week.dart';
 ///Monthly widget.
 class Monthly extends ConsumerWidget {
   ///Default constructor for Monthly.
-  const Monthly({Key key}) : super(key: key);
+  const Monthly({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final data = watch(periodicProvider.state);
+    final data = watch(periodicProvider);
 
     return Column(
       children: [
@@ -36,9 +36,7 @@ class Monthly extends ConsumerWidget {
           child: Container(
             alignment: Alignment.center,
             key: ObjectKey(data.monthlyType),
-            child: (data.monthlyType == MonthlyType.dayOfMonth)
-                ? Month()
-                : MultiWeek(),
+            child: (data.monthlyType == MonthlyType.dayOfMonth) ? Month() : MultiWeek(),
           ),
         ),
       ],
@@ -49,11 +47,11 @@ class Monthly extends ConsumerWidget {
 ///
 class MonthTypeChoose extends ConsumerWidget {
   ///
-  const MonthTypeChoose({Key key}) : super(key: key);
+  const MonthTypeChoose({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final data = watch(periodicProvider.state);
+    final data = watch(periodicProvider);
     final config = watch(configProvider);
 
     return RadioGroup<MonthlyType>.builder(

@@ -13,9 +13,9 @@ import 'periodic_widget.dart';
 ///and a [title].
 Future<PeriodicData> showPeriodicDialog(
   BuildContext context, {
-  PeriodicConfig config,
-  PeriodicData initialData,
-  ShapeBorder shape,
+  PeriodicConfig? config,
+  PeriodicData? initialData,
+  ShapeBorder? shape,
   String title = 'Periodic',
   String cancelText = 'Cancel',
   String okText = 'OK',
@@ -26,18 +26,11 @@ Future<PeriodicData> showPeriodicDialog(
     context: context,
     builder: (context) => AlertDialog(
       actions: [
-        FlatButton(
-            child: Text(cancelText),
-            onPressed: () => Navigator.of(context).pop()),
-        FlatButton(
-            child: Text(okText),
-            onPressed: () =>
-                Navigator.of(context).pop(periodicController.current)),
+        FlatButton(child: Text(cancelText), onPressed: () => Navigator.of(context).pop()),
+        FlatButton(child: Text(okText), onPressed: () => Navigator.of(context).pop(periodicController.current)),
       ],
-      insetPadding:
-          const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
-      contentPadding:
-          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
       title: Text(title),
       content: Periodic(
         config: config,
@@ -46,5 +39,5 @@ Future<PeriodicData> showPeriodicDialog(
       ),
       shape: shape,
     ),
-  );
+  ) as Future<PeriodicData>;
 }

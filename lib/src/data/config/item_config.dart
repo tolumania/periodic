@@ -35,7 +35,7 @@ class PeriodicItemConfig {
   final double spacing;
 
   ///Size of an item.
-  final double size;
+  final double? size;
 
   ///Default constructor for PeriodicItemConfig
   const PeriodicItemConfig({

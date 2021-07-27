@@ -11,7 +11,7 @@ class PeriodicSwitch extends StatelessWidget {
   final Frequency frequency;
 
   ///Default constructor for PeriodicSwitch.
-  const PeriodicSwitch({@required this.frequency, Key key}) : super(key: key);
+  const PeriodicSwitch({required this.frequency, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

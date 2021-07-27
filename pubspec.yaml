@@ -1,28 +1,27 @@
 name: periodic
 description: A periodic widget (and dialog) to choose a recurring pattern.
 version: 1.0.0+1
-homepage: https://github.com/pblinux/periodic
-repository: https://github.com/pblinux/periodic
+homepage: https://github.com/tolumania/periodic
+repository: https://github.com/tolumania/periodic
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  auto_size_text: ^2.1.0
-  customtogglebuttons: ^0.0.5
-  flutter_hooks: ^0.15.0
-  freezed_annotation: ^0.12.0
-  group_radio_button: ^1.0.1
-  hooks_riverpod: ^0.12.2
+  auto_size_text: 
+  customtogglebuttons: 
+  flutter_hooks: ^0.18.0
+  freezed_annotation: 
+  group_radio_button: 
+  hooks_riverpod: ^0.14.0+4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.10.11
-  effective_dart: ^1.3.0
-  freezed: ^0.12.7
+  build_runner: 
+  effective_dart: 
+  freezed: 
 
 flutter:

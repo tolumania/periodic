@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../utils/periodic_provider.dart';
 
 ///Week widget
@@ -16,9 +16,9 @@ class Week extends ConsumerWidget {
 
   ///Default constructor for Week.
   const Week({
-    @required this.daysOfWeek,
-    @required this.onDayPressed,
-    Key key,
+    required this.daysOfWeek,
+    required this.onDayPressed,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -26,18 +26,9 @@ class Week extends ConsumerWidget {
     final config = watch(configProvider);
     final text = config.textConfig;
 
-    final days = [
-      text.sunday,
-      text.monday,
-      text.tuesday,
-      text.wednesday,
-      text.thursday,
-      text.friday,
-      text.saturday
-    ];
+    final days = [text.sunday, text.monday, text.tuesday, text.wednesday, text.thursday, text.friday, text.saturday];
 
-    final size =
-        config.weekConfig.size ?? MediaQuery.of(context).size.width / 14;
+    final size = config.weekConfig.size ?? MediaQuery.of(context).size.width / 14;
 
     return CustomToggleButtons(
       color: config.weekConfig.unselectedTextColor,
@@ -61,8 +52,7 @@ class Week extends ConsumerWidget {
             ),
           )
           .toList(),
-      isSelected: List.generate(
-          7, (index) => daysOfWeek.contains(index) ? true : false),
+      isSelected: List.generate(7, (index) => daysOfWeek.contains(index) ? true : false),
     );
   }
 }

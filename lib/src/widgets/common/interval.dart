@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../periodic.dart';
 import '../../utils/periodic_provider.dart';
 import 'gap.dart';
@@ -10,12 +10,12 @@ import 'gap.dart';
 ///`daily`, `weekly`, `monthly` or `yearly`.
 class IntervalPicker extends ConsumerWidget {
   ///Default constructor for IntervalPicker.
-  const IntervalPicker({Key key}) : super(key: key);
+  const IntervalPicker({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final config = watch(configProvider);
-    final data = watch(periodicProvider.state);
+    final data = watch(periodicProvider);
 
     return Container(
       alignment: config.horizontalAlignment,
@@ -46,24 +46,24 @@ class IntervalPicker extends ConsumerWidget {
 ///Custom Number Picker
 class NumberPicker extends StatefulWidget {
   ///Initial value
-  final int initialValue;
+  final int? initialValue;
 
   ///When number value changes
   final Function(int) onValue;
 
   ///Max value permited
-  final int maxValue;
+  final int? maxValue;
 
   ///Min value permited
   final int minValue;
 
   ///Color of icons
-  final Color iconsColor;
+  final Color? iconsColor;
 
   ///Default constructor for custom number picker
   const NumberPicker({
-    @required this.onValue,
-    Key key,
+    required this.onValue,
+    Key? key,
     this.iconsColor,
     this.initialValue,
     this.maxValue,
@@ -75,7 +75,7 @@ class NumberPicker extends StatefulWidget {
 }
 
 class _NumberPickerState extends State<NumberPicker> {
-  int _currentNumber;
+  int _currentNumber = 0;
 
   @override
   void initState() {

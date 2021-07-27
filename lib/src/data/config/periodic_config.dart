@@ -7,7 +7,7 @@ import 'text_config.dart';
 ///General configuration for Periodic widget.
 class PeriodicConfig {
   ///Frequency input decoration.
-  final InputDecoration frequencyDecoration;
+  final InputDecoration? frequencyDecoration;
 
   ///Month item configuration
   final PeriodicItemConfig monthConfig;

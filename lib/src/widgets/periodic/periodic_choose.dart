@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/common.dart';
 import '../../utils/periodic_provider.dart';
 import '../common/gap.dart';
@@ -10,13 +10,13 @@ class PeriodicChoose extends ConsumerWidget {
   final Frequency currentFrequency;
 
   ///When frequency changes.
-  final Function(Frequency) onFrequencyChanged;
+  final void Function(Frequency?)? onFrequencyChanged;
 
   ///Default constructor for PeriodicChoose.
   const PeriodicChoose({
-    @required this.currentFrequency,
-    @required this.onFrequencyChanged,
-    Key key,
+    required this.currentFrequency,
+    required this.onFrequencyChanged,
+    Key? key,
   }) : super(key: key);
 
   @override
